@@ -3,14 +3,17 @@ package main
 import "fmt"
 
 func main() {
+	z := 1
+	// Short declaration operator, z and 1 are operands to declare a value
+	//Variable declaration and value assignation simultaneously
 	var (
-		x int = 33
-		y int = x + 1
+		x int = 33 + z
+		y int = x - 1
 	)
-	fmt.Println("Allahu Akbar!")
+	fmt.Println("Allahu Akbar!", "x", y)
 	Tasbih()
 	Tahlil()
-	fmt.Println("Alhamdulillah", y)
+	fmt.Println("Alhamdulillah", "x", y)
 	for i := 0; i < 100; i++ {
 		if i%2 == 0 {
 
@@ -19,7 +22,7 @@ func main() {
 	}
 }
 func Tasbih() {
-	fmt.Println("SubhanAllah")
+	fmt.Println("SubhanAllah", "x", "33")
 }
 
 func Tahlil() {
