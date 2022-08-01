@@ -12,14 +12,17 @@ var y = 42
 //Dynamic languages are different
 var z string = "Al-manhaj al-nabawi"
 
+type mumin string
+
 func main() {
+	var ali mumin
 	fmt.Println("Hello world!", y, z)
 	fmt.Printf("%T\n", y)
 	fmt.Printf("%T\n", z)
 	fmt.Printf("%b\n", z)
 	fmt.Printf("%x\n", z)
 	fmt.Printf("%#x\n%b\n%x\n", z, z, z)
-
-	s, _ := fmt.Printf("%#x\n%b\n%x\n", z, z, z);
+	s, _ := fmt.Printf("%#x\n%b\n%x\n", z, z, z)
 	fmt.Println(s)
+	fmt.Printf("%T\n", ali)
 }
