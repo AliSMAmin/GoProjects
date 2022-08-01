@@ -5,6 +5,15 @@ import (
 	_ "rsc.io/quote"
 )
 
+var y = 42
+
+// Declares variable 'z' as type 'string'. Writing string is not necessary.
+//Since Go is a static language, variables hold values of a certain type.
+//Dynamic languages are different
+var z string = "Al-manhaj al-nabawi"
+
 func main() {
-	fmt.Println("Hello world!")
+	fmt.Println("Hello world!", y, z)
+	fmt.Printf("%T\n", y)
+	fmt.Printf("%T\n", z)
 }
