@@ -14,9 +14,12 @@ var z string = "Al-manhaj al-nabawi"
 
 type mumin string
 
+var iman bool
+
 func main() {
 	var ali mumin
-	fmt.Println("Hello world!", y, z)
+	iman = true
+	fmt.Println("Hello world!", y, z, iman)
 	fmt.Printf("%T\n", y)
 	fmt.Printf("%T\n", z)
 	fmt.Printf("%b\n", z)
