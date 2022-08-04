@@ -3,12 +3,13 @@ package main
 import "fmt"
 
 func main() {
-	i := 0
+	x := 1
 	for {
-		fmt.Println(i)
-		if i >= 10 {
-			break
-		}
-		i++
+			if x > 9 {
+				break
+			}
+			fmt.Println(x)
+			x++
+			}
+			fmt.Println("done.")
 	}
-}
