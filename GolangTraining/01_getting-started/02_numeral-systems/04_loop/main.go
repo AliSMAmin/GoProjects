@@ -9,8 +9,12 @@ func main() {
 	d := (42 != 43)
 	e := (42 < 43)
 	f := (42 > 43)
+	//Loops are for init; condition; post {}
 	fmt.Println(a, b, c, d, e, f)
-	for i := 1000000; i < 1000100; i++ {
-		fmt.Printf("%d \t %b \t %x \n", i, i, i)
+	for i := 0; i <= 100; i++ {
+		fmt.Printf("The outer loop: %d\n", i)
+		for j := 0; j < 3; j++ {
+			fmt.Printf("\t \t The Inner Loop %d\n", j)
+		}
 	}
 }
