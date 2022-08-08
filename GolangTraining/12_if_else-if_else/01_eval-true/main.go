@@ -3,12 +3,16 @@ package main
 import "fmt"
 
 func main() {
-
-	if true {
-		fmt.Println("This ran")
+	x:=2; if x==2 {
+		fmt.Println("01")
 	}
-
-	if false {
-		fmt.Println("This did not run")
+	if x!=2 {
+		fmt.Println("02")
+	}
+	if x==2 {
+		fmt.Println("03")
+	}
+	if !(x!=2) {
+		fmt.Println("04"); fmt.Println("05");
 	}
 }
