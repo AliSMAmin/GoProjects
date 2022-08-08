@@ -3,11 +3,14 @@ package main
 import "fmt"
 
 func main() {
-	switch "Mhi" {
-	case "Daniel":
-		fmt.Println("Wassup Daniel")
-	case "Medhi":
-		fmt.Println("Wassup Medhi")
+	fmt.Println("Who are your friends?")
+	n := "Daniel"
+	switch "Daniel" {
+	case n:
+		fmt.Println("Aligator is your friend")
+		fallthrough
+	case "Buddle":
+		fmt.Println("Buddle is your friend")
 	case "Jenny":
 		fmt.Println("Wassup Jenny")
 	default:
