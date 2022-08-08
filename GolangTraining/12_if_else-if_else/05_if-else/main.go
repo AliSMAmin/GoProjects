@@ -3,11 +3,11 @@ package main
 import "fmt"
 
 func main() {
-
-	if false {
-		fmt.Println("first print statement")
-	} else {
-		fmt.Println("second print statement")
+	x:=41;	if x==40 {
+		fmt.Println("The value is 40")
+	} else if x ==41 {
+		fmt.Println("The value is not 40, it is 41")
+	} else if x ==42 {
+		fmt.Println("The value is not 40, it is 42")
 	}
-
 }
