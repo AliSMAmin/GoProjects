@@ -27,7 +27,12 @@ func SwitchOnType(x interface{}) {
 	}
 }
 
-func main() {
+func main(){
+	fmt.Println(true && true);
+	fmt.Println(true && false);
+	fmt.Println(true || true);
+	fmt.Println(true || false);
+	fmt.Println(!true);
 	SwitchOnType(7)
 	SwitchOnType("McLeod")
 	var t = contact{"Good to see you,", "Tim"}
