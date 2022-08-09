@@ -5,15 +5,12 @@ import (
 )
 
 func main() {
+	jb := []string{"James", "Bond", "Chocolate", "Latte"}
+	fmt.Println(jb)
+	mp := []string{"Miss", "Money", "Strawberry", "Hazelnut"}
+	fmt.Println(mp)
 
-	transactions := make([][]int, 0, 3)
+	xp := [][]string{jb, mp}
+	fmt.Println(xp)
 
-	for i := 0; i < 3; i++ {
-		transaction := make([]int, 0, 4)
-		for j := 0; j < 4; j++ {
-			transaction = append(transaction, j)
-		}
-		transactions = append(transactions, transaction)
-	}
-	fmt.Println(transactions)
 }
