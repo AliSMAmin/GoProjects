@@ -1,18 +1,22 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
-
-	var myGreeting map[string]string
-	fmt.Println(myGreeting)
-	fmt.Println(myGreeting == nil)
+	fmt.Println("How old is James Bond?")
+	m := map[string]int{
+		"James":      32,
+		"Miss Money": 18,
+	}
+	fmt.Println(m)
+	fmt.Println(m["James"])
+	var v, ok = m["Charles"]
+	fmt.Println(m["Charles"])
+	if v, ok = m["Charles"]; ok {
+		fmt.Println(m["Charles"])
+		fmt.Println(v)
+		fmt.Println(ok)
+	}
 }
-
-// add these lines:
-/*
-	myGreeting["Tim"] = "Good morning."
-	myGreeting["Jenny"] = "Bonjour."
-*/
-// and you will get this:
-// panic: assignment to entry in nil map
