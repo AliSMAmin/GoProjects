@@ -1,26 +1,49 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
-type square struct {
-	side float64
+type person struct {
+	first string
+	last  string
 }
 
-func (z square) area() float64 {
-	return z.side * z.side
+type secretagent struct {
+	person
+	ltk bool
 }
 
-type shape interface {
-	area() float64
+// func (r receiver) identifier(parameters) (return(s)) {code}
+
+func (s secretagent) speak() {
+	fmt.Println("I am", s.first, s.last)
 }
 
-func info(z shape) {
-	fmt.Println(z)
-	fmt.Println(z.area())
+type human interface {
+	speak()
 }
 
 func main() {
-	s := square{10}
-	fmt.Printf("%T\n",s)
-	info(s)
+	sa1 := secretagent{
+		person: person{
+			"James",
+			"Bond",
+		},
+		ltk: true,
+	}
+	sa2 := secretagent{
+		person: person{
+			"Miss",
+			"Moneypenny",
+		},
+	}
+	p1 := person{
+		first: "Dr.",
+		last:  "No",
+	}
+	fmt.Println(sa1)
+	sa1.speak()
+	sa2.speak()
+	fmt.Println(p1)
 }
