@@ -1,20 +1,26 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"runtime"
+	"sync"
+)
 
+var wg sync.WaitGroup
+
+func init() {}
 func main() {
+	fmt.Println("OS\t", runtime.GOOS)
+	fmt.Println("ARCH\t", runtime.GOARCH)
+	fmt.Println("CPUs\t", runtime.NumCPU())
+	wg.Add(1)
 	go foo()
-	go bar()
+	fmt.Println("Goroutines\t", runtime.NumGoroutine())
+	wg.Wait()
 }
-
 func foo() {
-	for i := 0; i < 45; i++ {
-		fmt.Println("Foo:", i)
+	for i := 0; i < 10; i++ {
+		fmt.Println("foo:", i)
 	}
-}
-
-func bar() {
-	for i := 0; i < 45; i++ {
-		fmt.Println("Bar:", i)
-	}
+	wg.Done()
 }
