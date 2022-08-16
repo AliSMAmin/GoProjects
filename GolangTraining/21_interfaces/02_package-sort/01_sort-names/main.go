@@ -1,24 +1,34 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
-	"sort"
 )
 
-type people []string
-
-func (p people) Len() int           { return len(p) }
-func (p people) Swap(i, j int)      { p[i], p[j] = p[j], p[i] }
-func (p people) Less(i, j int) bool { return p[i] < p[j] }
-
-func main() {
-	studyGroup := people{"Zeno", "John", "Al", "Jenny"}
-
-	fmt.Println(studyGroup)
-	sort.Sort(studyGroup)
-	fmt.Println(studyGroup)
-
+type person struct {
+	First string
+	Last  string
+	Age   int
 }
 
-// https://golang.org/pkg/sort/#Sort
-// https://golang.org/pkg/sort/#Interface
+func main() {
+	p1 := person{
+		First: "James",
+		Last:  "Bond",
+		Age:   32,
+	}
+	p2 := person{
+		First: "Miss",
+		Last:  "Moneypenny",
+		Age:   19,
+	}
+	people := []person{p1, p2}
+
+	fmt.Println(people)
+
+	bs, err := json.Marshal(people)
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Println(string(bs))
+}
