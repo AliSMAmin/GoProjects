@@ -2,34 +2,28 @@ package main
 
 import (
 	"fmt"
-	"math/rand"
+	"runtime"
 	"sync"
 	"time"
 )
-
-var wg sync.WaitGroup
-var counter int
-
-func main() {
-	wg.Add(2)
-	go incrementor("Foo:")
-	go incrementor("Bar:")
-	wg.Wait()
-	fmt.Println("Final Counter:", counter)
-}
-
-func incrementor(s string) {
-	rand.Seed(time.Now().UnixNano())
-	for i := 0; i < 20; i++ {
-		x := counter
-		x++
-		time.Sleep(time.Duration(rand.Intn(3)) * time.Millisecond)
-		counter = x
-		fmt.Println(s, i, "Counter:", counter)
+func main () {
+	fmt.Println("CPUs", runtime.NumCPU())
+	fmt.Println("GoRoutines", runtime.NumGoroutine())
+	counter := 0
+	const gs = 100
+	var wg sync.WaitGroup
+	wg.Add(gs)
+	for i :=0; i < gs; i++ {
+		go func() {
+			v := counter
+			time.Sleep(time.Second)
+			runtime.Gosched()
+			v++
+			counter = v;
+			wg.Done()
+		}()
 	}
-	wg.Done()
+	wg.Wait()
+	fmt.Println("GoRoutines", runtime.NumGoroutine())
+	fmt.Println("Counter", counter)
 }
-
-// go run -race main.go
-// vs
-// go run main.go
